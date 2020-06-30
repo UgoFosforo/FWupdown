@@ -3,8 +3,10 @@ package me.architetto.fwupdown.command;
 import me.architetto.fwupdown.Fwupdown;
 import me.architetto.fwupdown.utility.ChatMessages;
 import me.architetto.fwupdown.utility.Messages;
-import org.bukkit.*;
-
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.Tag;
 import org.bukkit.block.data.Openable;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +17,7 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 import java.util.*;
 
 
-public class UpDownCommands implements CommandExecutor {
+public class UpDownCopy implements CommandExecutor {
 
     public static HashMap<UUID,Location> LastLocation = new HashMap<UUID, Location> ();
 

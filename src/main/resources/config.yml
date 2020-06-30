@@ -1,0 +1,8 @@
+#Numero di blocchi liberi minimi per permettere il TP
+Spazio libero minimo: 2
+
+#Permette il tp sott'acqua
+Permetti TP in acqua : true
+
+#Evita il tp sulla lava o nella lava.
+Lava protection : true

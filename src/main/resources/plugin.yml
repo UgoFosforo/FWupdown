@@ -1,0 +1,19 @@
+name: FWupdown
+version: ${project.version}
+main: me.architetto.fwupdown.Fwupdown
+api-version: 1.15
+authors: [Architetto]
+description: Consente di spostarsi verticalmente nel mondo.
+commands:
+  fwupdown:
+    description: Teletrasporta il player su e giù.
+
+permissions:
+  fwupdown.allow:
+    description: User is able to use /fwupdown
+    default: true
+    children:
+      fwupdown.up : true
+      fwupdown.down : true
+      fwupdown.back : true
+      fwupdown.reload : true

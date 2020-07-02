@@ -54,12 +54,8 @@ public class UpDownCommands implements CommandExecutor {
                 //Punta al primo blocco solido che trova Su o Giu (dipende dal comando)
                 pointNextNOTPassableBlock ( playerLoc, args[0] );
 
-                System.out.println ("pointNextNOTPassableBlock ---------> " + playerLoc.getY () + "//" + playerLoc.getBlock ().getType ());
-
                 //Punta al primo blocco trapassabile che trova Su o Giu (dipende dal comando)
                 pointNextPassableBlock(playerLoc,args[0]);
-
-                System.out.println ("pointNextPassableBlock ---------> " + playerLoc.getY () + "//" + playerLoc.getBlock ().getType ());
 
                 if(playerLoc.getY ()==400 )
                     break;
@@ -94,19 +90,11 @@ public class UpDownCommands implements CommandExecutor {
 
             while(playerLoc.getY ()<256 - minClearSpace || playerLoc.getBlock ().getType () == Material.BEDROCK){
 
-
                 pointNextPassableBlock(playerLoc,args[0]);
-
-                System.out.println ("pointNextPassableBlock VALORE TROVATO---------> " + playerLoc.getY () + "//" + playerLoc.getBlock ().getType ());
 
                 pointNextNOTPassableBlock ( playerLoc, args[0] );
 
-                System.out.println ("pointNextNOTPassableBlock VALORE TROVATO---------> " + playerLoc.getY () + "//" + playerLoc.getBlock ().getType ());
-
-
                 pointNextPassableBlock(playerLoc,"up");
-
-                System.out.println ("pointNextPassableBlock VALORE TROVATO---------> " + playerLoc.getY () + "//" + playerLoc.getBlock ().getType ());
 
                 if(playerLoc.getY ()==400 || playerLoc.getY ()<0)
                     break;
@@ -215,8 +203,6 @@ public class UpDownCommands implements CommandExecutor {
                 if(upORdown.equalsIgnoreCase ( "down" ))
                     playerLoc.add ( 0, -1, 0 );
 
-
-                System.out.println ("pointNextNOTPassableBlock -----nelWhile----> " + playerLoc.getY () +"//" + playerLoc.getBlock ().getType ());
             }
             else {
 
@@ -246,10 +232,6 @@ public class UpDownCommands implements CommandExecutor {
 
                 if(upORdown.equalsIgnoreCase ( "down" ))
                     playerLoc.add ( 0, -1, 0 );
-
-
-
-                System.out.println ("pointNextPassableBlock ----NEL WHILE newxPASSABLE-----> " + playerLoc.getY () + "///" + playerLoc.getBlock ().getType () );
 
             }
 
@@ -348,12 +330,6 @@ public class UpDownCommands implements CommandExecutor {
                     playerLoc.add ( 0,1,0 );
                     break;
                 }
-
-
-               // if(checkedBlock == minClearSpace || checkedBlock > minClearSpace ){
-                 //   flag=true;
-                   // break;
-                 //}
 
                 //Il blocco ha superato le verifiche supplementari
                 checkedBlock++;

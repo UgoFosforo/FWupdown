@@ -526,7 +526,7 @@ public class UpDownCommands implements CommandExecutor {
         //Esegue il tp e salva la posizione di partenza per un eventuale comando back
 
         player.playSound(player.getLocation (), Sound.ENTITY_ENDERMAN_TELEPORT, 5, 1);
-        Fwupdown.log ( "Il player " + player.getName () + "si e' teletrasportato alle coordinate-> X: " + playerLoc.getBlockX ()
+        Fwupdown.log ( "Il player [ " + player.getName () + " ] si e' teletrasportato alle coordinate-> X: " + playerLoc.getBlockX ()
                 + "  Y: " + playerLoc.getBlockY () + "  Z: " + playerLoc.getBlockZ ());
         player.teleport(playerLoc, PlayerTeleportEvent.TeleportCause.PLUGIN);
         sender.sendMessage(ChatMessages.SUCCESS( Messages.TPSUCCESS ));
@@ -545,7 +545,7 @@ public class UpDownCommands implements CommandExecutor {
 
         //Esegue il tp back ed elimina la posizione del player dall'HashMap
         player.playSound (player.getLocation (), Sound.ENTITY_ENDERMAN_TELEPORT, 5, 1);
-        Fwupdown.log ( "Il player " + player.getName () + "si e' teletrasportato alle coordinate-> X: " + playerLoc.getBlockX ()
+        Fwupdown.log ( "Il player [ " + player.getName () + " ] si e' teletrasportato alle coordinate-> X: " + playerLoc.getBlockX ()
                 + "  Y: " + playerLoc.getBlockY () + "  Z: " + playerLoc.getBlockZ ());
         player.teleport (playerLoc, PlayerTeleportEvent.TeleportCause.PLUGIN );
         sender.sendMessage(ChatMessages.SUCCESS ( Messages.TPSUCCESS ));

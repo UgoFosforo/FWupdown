@@ -6,7 +6,7 @@ authors: [Architetto]
 description: Consente di spostarsi verticalmente nel mondo.
 commands:
   fwupdown:
-    description: Teletrasporta il player su e giù.
+    description: Teletrasporta il player su e giù verticalmente.
 
 permissions:
   fwupdown.allow:

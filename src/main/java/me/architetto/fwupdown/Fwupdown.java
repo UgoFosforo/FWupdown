@@ -40,8 +40,8 @@ public final class Fwupdown extends JavaPlugin {
         return plugin;
     }
 
-    public static void log(String msg)
-    {
+    public static void log(String msg){
+
         Bukkit.getLogger().log( Level.INFO,"[FWupdowm] " + msg);
     }
 

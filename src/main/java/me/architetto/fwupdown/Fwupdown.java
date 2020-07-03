@@ -2,8 +2,11 @@ package me.architetto.fwupdown;
 
 import me.architetto.fwupdown.command.UpDownCommands;
 import me.architetto.fwupdown.command.UpDownTabCompleter;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Level;
 
 public final class Fwupdown extends JavaPlugin {
 
@@ -18,10 +21,10 @@ public final class Fwupdown extends JavaPlugin {
 
 
         // commands
-        getCommand("fwupdown").setExecutor(new UpDownCommands());
+        this.getCommand("fwupdown").setExecutor(new UpDownCommands());
 
         // tabCompleter
-        getCommand("fwupdown").setTabCompleter(new UpDownTabCompleter());
+        this.getCommand("fwupdown").setTabCompleter(new UpDownTabCompleter());
 
 
 
@@ -36,4 +39,10 @@ public final class Fwupdown extends JavaPlugin {
     public static Plugin getPlugin() {
         return plugin;
     }
+
+    public static void log(String msg)
+    {
+        Bukkit.getLogger().log( Level.INFO,"[FWupdowm] " + msg);
+    }
+
 }

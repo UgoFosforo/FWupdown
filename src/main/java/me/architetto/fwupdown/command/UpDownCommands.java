@@ -85,6 +85,7 @@ public class UpDownCommands implements CommandExecutor {
 
         }
 
+
         if(args[0].equalsIgnoreCase( "down" )) {
             if(!sender.hasPermission( "fwupdown.down" )) {
                 sender.sendMessage( ChatMessages.ONLYPLAYER( Messages.NO_PERM ));
@@ -97,30 +98,18 @@ public class UpDownCommands implements CommandExecutor {
 
             while(playerLoc.getY ()<256 - minClearSpace || playerLoc.getBlock ().getType () == Material.BEDROCK){
 
-
-
-
                 pointNextPassableBlock(playerLoc, args[0], args[0]);
-
-
 
 
                 if(!playerLoc.getBlock ().isPassable () && playerLoc.getBlock ().getType () != Material.LADDER
                         && !isTrapOpen (playerLoc) && !Tag.DOORS.getValues ().contains(playerLoc.getBlock ().getType ())){
                     sender.sendMessage(ChatMessages.NOSPACE( Messages.NO_SPACE ));
                     return true;
-
                 }
 
-                pointNextNOTPassableBlock( playerLoc, args[0] );
-
-
+                pointNextNOTPassableBlock(playerLoc, args[0]);
 
                 pointNextPassableBlock(playerLoc, "up", args[0]);
-
-
-
-
 
                 if(playerLoc.getY ()==400 || playerLoc.getY ()<0)
                     break;
@@ -139,7 +128,7 @@ public class UpDownCommands implements CommandExecutor {
                     teleportSuccess(targetLoc, player, sender, backLocation);
                     return true;
 
-                }else {
+                }else{
 
                     playerLoc=targetLoc.clone ();
                     playerLoc.add( 0,-1,0 );
@@ -147,13 +136,12 @@ public class UpDownCommands implements CommandExecutor {
                 }
 
             }
-
             sender.sendMessage(ChatMessages.NOSPACE( Messages.NO_SPACE ));
             return true;
-
         }
 
 
+        //Teletrasporta alla posizione precedente  NB: prende in considerazione solo i tp effettuati con FWupdown
         if(args[0].equalsIgnoreCase( "back" )){
 
             if(!sender.hasPermission("fwupdown.back")){
@@ -202,7 +190,6 @@ public class UpDownCommands implements CommandExecutor {
         playerLoc.setZ(playerLoc.getBlockZ ());
         playerLoc.setY(playerLoc.getBlockY ());
 
-        //Punta al centro della superficie del blocco
         if(upORdown.equalsIgnoreCase( "up" ))
             playerLoc.add(0.5,0,0.5);
         if(upORdown.equalsIgnoreCase ( "down" ))
@@ -273,7 +260,6 @@ public class UpDownCommands implements CommandExecutor {
 
                 if(playerLoc.getBlock ().getType ()==Material.BEDROCK){
 
-
                     if(upORdown.equalsIgnoreCase( "up" ) && command.equalsIgnoreCase( "down" )){
                         playerLoc.add ( 0,1,0 );
                         return;
@@ -284,14 +270,10 @@ public class UpDownCommands implements CommandExecutor {
                         return;
                     }
 
-
-
-
                     if(upORdown.equalsIgnoreCase ( "up" )) {
                         playerLoc.setY ( 400 );
                         break;
                     }
-
                 }
 
 
@@ -441,7 +423,7 @@ public class UpDownCommands implements CommandExecutor {
     //-----------------------------------------------------------------//
     //Il nome del metodo spiega quello che fa
 
-    private boolean isTrapOpen(Location checkBlock){
+    public boolean isTrapOpen(Location checkBlock){
 
         boolean flag=false;
 
@@ -454,7 +436,7 @@ public class UpDownCommands implements CommandExecutor {
         return flag;
     }
 
-    private boolean isBottomSlab(Location playerLoc){
+    public boolean isBottomSlab(Location playerLoc){
         boolean flag = false;
 
         if(Tag.SLABS.getValues ().contains( playerLoc.getBlock ().getType () )) {
@@ -467,7 +449,7 @@ public class UpDownCommands implements CommandExecutor {
     }
 
 
-    private boolean isBottomTrap(Location playerLoc){
+    public boolean isBottomTrap(Location playerLoc){
         boolean flag = false;
 
         if(Tag.TRAPDOORS.getValues ().contains ( playerLoc.getBlock ().getType () ) && !isTrapOpen( playerLoc ) ){
@@ -481,7 +463,7 @@ public class UpDownCommands implements CommandExecutor {
     }
 
 
-    private boolean isTopSlab(Location playerLoc){
+    public boolean isTopSlab(Location playerLoc){
         boolean flag = false;
 
         if(Tag.SLABS.getValues ().contains ( playerLoc.getBlock ().getType () )) {
@@ -493,7 +475,7 @@ public class UpDownCommands implements CommandExecutor {
     }
 
 
-    private boolean isTopTrap(Location playerLoc){
+    public boolean isTopTrap(Location playerLoc){
         boolean flag = false;
 
 
@@ -508,13 +490,11 @@ public class UpDownCommands implements CommandExecutor {
 
     //-----------------------------------------------------------------//
 
+    //aggiusta le coordinate del tp per poggiarlo perfettamente.
     private void fixFinalTpLocation(Location playerLoc){
-
-
 
         Location checkThis = playerLoc.clone ();
         checkThis.add(0,-1,0);
-        //aggiusta le coordinate del tp per poggiarlo perfettamente.
 
         boolean isOnFullBlock = checkThis.getBlock ().getBoundingBox ().getMaxY () % 1 == 0;
         if(isOnFullBlock)
@@ -526,14 +506,11 @@ public class UpDownCommands implements CommandExecutor {
             return;
         }
 
-
-
         if(Tag.CARPETS.getValues ().contains( checkThis.getBlock ().getType () ))
             playerLoc.add ( 0, -0.9, 0 );
 
         if(isBottomTrap( checkThis ))
             playerLoc.add ( 0, -0.8, 0 );
-
 
         checkThis.add( 0,-1,0 );
 
@@ -542,8 +519,6 @@ public class UpDownCommands implements CommandExecutor {
                 || gateList.contains( checkThis.getBlock ().getType ())) {
             playerLoc.add ( 0, 0.6, 0 );
         }
-
-
     }
 
     public void teleportSuccess(Location playerLoc, Player player, CommandSender sender, Location backlocation){

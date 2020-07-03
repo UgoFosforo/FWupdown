@@ -19,14 +19,11 @@ public final class Fwupdown extends JavaPlugin {
         getConfig ().options ().copyDefaults ();
         saveDefaultConfig ();
 
-
         // commands
         this.getCommand("fwupdown").setExecutor(new UpDownCommands());
 
         // tabCompleter
         this.getCommand("fwupdown").setTabCompleter(new UpDownTabCompleter());
-
-
 
     }
 
@@ -42,7 +39,7 @@ public final class Fwupdown extends JavaPlugin {
 
     public static void log(String msg){
 
-        Bukkit.getLogger().log( Level.INFO,"[FWupdowm] " + msg);
+        Bukkit.getLogger().log(Level.INFO,"[FWupdowm] " + msg);
     }
 
 }

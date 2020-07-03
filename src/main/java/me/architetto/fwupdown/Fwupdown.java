@@ -18,10 +18,10 @@ public final class Fwupdown extends JavaPlugin {
 
 
         // commands
-        getCommand ( "fwupdown" ).setExecutor ( new UpDownCommands () );
+        getCommand("fwupdown").setExecutor(new UpDownCommands());
 
         // tabCompleter
-        getCommand ( "fwupdown" ).setTabCompleter ( new UpDownTabCompleter () );
+        getCommand("fwupdown").setTabCompleter(new UpDownTabCompleter());
 
 
 

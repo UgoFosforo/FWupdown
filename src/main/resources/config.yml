@@ -1,5 +1,10 @@
 #Numero di blocchi liberi minimi per permettere il TP
+#Una slab (ma non solo) vale effettivamente 0.5 di spazio quindi nel caso di (slab bassa - blocco simil-aria - slab alta) e spazio minimo = 2
+# il player verrà teletrasportato all'interno.
 Spazio libero minimo: 2
+#E' possibile inserire anche valori intermedi (a step di .5) come 1.5 o 2.5
+# ... ma consiglio di settare solo valori interi , non si sa mai....
+
 
 #Evita il tp sulla lava o nella lava.
-Lava protection : true
+Lava protection : false

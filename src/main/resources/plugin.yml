@@ -16,4 +16,11 @@ permissions:
       fwupdown.up : true
       fwupdown.down : true
       fwupdown.back : true
-      fwupdown.reload : true
+      fwupdown.help : true
+
+  fwupdown.op:
+    description: User is able to use /fwupdown
+    default: true
+    children:
+      fwupdown.allow: true
+      fwupdown.reload: true
